@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Login - PRK Computer Center
+  </title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- =========================
+     LOGIN PAGE
+========================= -->
+
+<section class="login-page">
+
+  <!-- LEFT SIDE -->
+
+  <div class="login-left">
+
+    <div class="overlay"></div>
+
+    <div class="login-content">
+
+      <img src="logo.png"
+           alt="PRK Logo"
+           class="login-logo">
+
+      <h1>
+
+        PRK Computer Center
+
+      </h1>
+
+      <p>
+
+        Government Services,
+        Online Work,
+        Computer Courses,
+        CSC Services &
+        Digital Solutions.
+
+      </p>
+
+      <div class="login-features">
+
+        <div>
+          ✅ Professional Computer Institute
+        </div>
+
+        <div>
+          ✅ Online Government Services
+        </div>
+
+        <div>
+          ✅ Digital India Services
+        </div>
+
+        <div>
+          ✅ Fast & Secure Portal
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+
+  <div class="login-right">
+
+    <div class="login-box">
+
+      <h2>
+
+        Welcome Back 👋
+
+      </h2>
+
+      <p>
+
+        Login To Your Account
+
+      </p>
+
+      <!-- LOGIN FORM -->
+
+      <form>
+
+        <!-- EMAIL -->
+
+        <div class="input-box">
+
+          <label>
+
+            Email Address
+
+          </label>
+
+          <input type="email"
+                 placeholder="Enter Email"
+                 required>
+
+        </div>
+
+        <!-- PASSWORD -->
+
+        <div class="input-box">
+
+          <label>
+
+            Password
+
+          </label>
+
+          <input type="password"
+                 placeholder="Enter Password"
+                 required>
+
+        </div>
+
+        <!-- OPTIONS -->
+
+        <div class="login-options">
+
+          <label>
+
+            <input type="checkbox">
+
+            Remember Me
+
+          </label>
+
+          <a href="#">
+
+            Forgot Password?
+
+          </a>
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <button type="submit"
+                class="login-btn">
+
+          Login Now
+
+        </button>
+
+      </form>
+
+      <!-- REGISTER -->
+
+      <div class="register-link">
+
+        Don't have an account?
+
+        <a href="admission-form.html">
+
+          Register Here
+
+        </a>
+
+      </div>
+
+      <!-- SOCIAL -->
+
+      <div class="social-login">
+
+        <p>
+
+          Or Login With
+
+        </p>
+
+        <div class="social-buttons">
+
+          <a href="#">
+            🌐 Google
+          </a>
+
+          <a href="#">
+            📘 Facebook
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     LOGIN STYLE
+========================= -->
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#eef4ff;
+}
+
+.login-page{
+  display:flex;
+  min-height:100vh;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.login-left{
+  width:50%;
+  background:
+  linear-gradient(rgba(0,0,0,0.65),
+  rgba(0,0,0,0.65)),
+  url('banner.jpg');
+
+  background-size:cover;
+  background-position:center;
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+  padding:50px;
+}
+
+.login-content{
+  position:relative;
+  z-index:2;
+  max-width:550px;
+}
+
+.login-logo{
+  width:120px;
+  margin-bottom:25px;
+  border-radius:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.login-content h1{
+  font-size:48px;
+  margin-bottom:20px;
+  font-weight:800;
+}
+
+.login-content p{
+  font-size:18px;
+  line-height:1.8;
+  color:#e7e7e7;
+}
+
+.login-features{
+  margin-top:35px;
+}
+
+.login-features div{
+  margin-bottom:15px;
+  font-size:17px;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.login-right{
+  width:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+}
+
+.login-box{
+  width:100%;
+  max-width:450px;
+  background:white;
+  padding:45px;
+  border-radius:30px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.login-box h2{
+  font-size:38px;
+  color:#003d7a;
+  margin-bottom:10px;
+}
+
+.login-box p{
+  color:#666;
+  margin-bottom:30px;
+}
+
+.input-box{
+  margin-bottom:22px;
+}
+
+.input-box label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:600;
+  color:#333;
+}
+
+.input-box input{
+  width:100%;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid #d0d7e2;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.input-box input:focus{
+  border-color:#0077ff;
+  outline:none;
+  box-shadow:0 0 10px rgba(0,119,255,0.15);
+}
+
+.login-options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+  font-size:14px;
+}
+
+.login-options a{
+  color:#0077ff;
+  text-decoration:none;
+}
+
+.login-btn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#0077ff,#00c6ff);
+  color:white;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  transform:translateY(-4px);
+}
+
+.register-link{
+  text-align:center;
+  margin-top:25px;
+  color:#555;
+}
+
+.register-link a{
+  color:#0077ff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.social-login{
+  margin-top:35px;
+  text-align:center;
+}
+
+.social-buttons{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+}
+
+.social-buttons a{
+  flex:1;
+  padding:14px;
+  background:#f5f7ff;
+  border-radius:14px;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.social-buttons a:hover{
+  background:#0077ff;
+  color:white;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+  .login-page{
+    flex-direction:column;
+  }
+
+  .login-left,
+  .login-right{
+    width:100%;
+  }
+
+  .login-left{
+    min-height:400px;
+  }
+
+  .login-content h1{
+    font-size:38px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .login-box{
+    padding:30px 20px;
+  }
+
+  .login-content h1{
+    font-size:30px;
+  }
+
+  .social-buttons{
+    flex-direction:column;
+  }
+
+}
+
+</style>
+
+<script src="script.js"></script>
+
+</body>
+</html>

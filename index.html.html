@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta name="theme-color" content="#003a75">
+  <meta name="description" content="PRK Computer Center - Government Services, Online Work, Computer Courses & CSC Services">
+  <link rel="apple-touch-icon" href="ChatGPT Image May 21, 2026, 06_10_30 PM.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRK Computer Center</title>
+  <link rel="icon" type="image/png" href="ChatGPT Image May 21, 2026, 06_10_30 PM.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#eef4ff;
+      color:#222;
+      line-height:1.6;
+      overflow-x:hidden;
+      background-image:
+      radial-gradient(circle at top right, rgba(0,119,255,0.08), transparent 25%),
+      radial-gradient(circle at bottom left, rgba(0,68,255,0.08), transparent 25%);
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    ::-webkit-scrollbar{
+      width:10px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:linear-gradient(#0077ff,#00c6ff);
+      border-radius:20px;
+    }
+
+    header{
+      background:linear-gradient(135deg,#0b5ed7,#0dcaf0);
+      color:white;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:28px;
+      font-weight:700;
+      background:rgba(255,255,255,0.12);
+      padding:10px 18px;
+      border-radius:50px;
+      backdrop-filter:blur(8px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .logo-icon{
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#ff9800,#ffd54f);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      color:#0b1f3a;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ffe082;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content h1{
+      font-size:65px;
+      text-shadow:0 4px 15px rgba(0,0,0,0.4);
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      max-width:800px;
+      margin:auto;
+    }
+
+    .btn{
+      background:linear-gradient(135deg,#0077ff,#00c6ff);
+      box-shadow:0 10px 25px rgba(0,119,255,0.35);
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 35px;
+      background:#ff9800;
+      color:white;
+      text-decoration:none;
+      border-radius:40px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:linear-gradient(135deg,#005de0,#00a6ff);
+      transform:translateY(-3px);
+    }
+
+    section{
+      padding:80px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:40px;
+      color:#0b5ed7;
+      margin-bottom:10px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+      text-align:center;
+    }
+
+    .card:hover{
+      transform:translateY(-12px) scale(1.02);
+      box-shadow:0 20px 40px rgba(0,119,255,0.18);
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      top:-50px;
+      right:-50px;
+      width:120px;
+      height:120px;
+      background:linear-gradient(135deg,#0077ff,#00c6ff);
+      opacity:0.08;
+      border-radius:50%;
+    }
+
+    .card h3{
+      margin:15px 0;
+      color:#0b5ed7;
+    }
+
+    .card p{
+      color:#555;
+      font-size:15px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .about-text h2{
+      color:#0b5ed7;
+      margin-bottom:20px;
+      font-size:38px;
+    }
+
+    .courses{
+      background:#eef5ff;
+    }
+
+    .course-list{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .course-item{
+      background:white;
+      padding:25px;
+      border-left:5px solid #0b5ed7;
+      border-radius:12px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      font-weight:600;
+    }
+
+    .contact-box{
+      background:white;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      text-align:center;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .contact-box h3{
+      color:#0b5ed7;
+      margin-bottom:20px;
+      font-size:30px;
+    }
+
+    footer{
+      background:#0d1b2a;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:40px;
+    }
+
+    @media(max-width:768px){
+      .hero-content h1{
+        font-size:36px;
+      }
+
+      nav{
+        display:none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div style="position:fixed;bottom:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:15px;">
+
+  <a href="https://wa.me/919118663177" target="_blank" style="background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+    💬
+  </a>
+
+  <a href="tel:+919118663177" style="background:#0077ff;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+    📞
+  </a>
+
+</div>
+
+<header>
+  <div class="top-bar" style="background:#06142b;padding:10px 8%;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:14px;flex-wrap:wrap;">
+    <div>📞 +91 9118663177, 9140509014, 9559478585</div>
+    <div>✉️ prkcomputercenter@gmail.com</div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;width:100%;padding:15px 8%;background:linear-gradient(135deg,#02152e,#003a75);">
+    <div class="logo" style="background:none;box-shadow:none;padding:0;display:flex;align-items:center;gap:15px;">
+      <img src="ChatGPT Image May 21, 2026, 06_10_30 PM.png" alt="PRK Logo" style="width:120px;height:auto;border-radius:12px;box-shadow:0 6px 20px rgba(0,153,255,0.4);">
+      <div>
+        <h2 style="color:#fff;font-size:30px;line-height:1;font-weight:800;">PRK</h2>
+        <p style="color:#58b7ff;font-size:15px;font-weight:600;letter-spacing:1px;">COMPUTER CENTER</p>
+      </div>
+    </div>
+
+    <nav style="display:flex;gap:25px;align-items:center;">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#courses">Courses</a>
+      <a href="#about">About Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-banner" style="background:linear-gradient(90deg,#00142e,#003d7a,#00142e);padding:15px 8%;display:flex;justify-content:center;align-items:center;overflow:hidden;">
+  <img src="ChatGPT Image May 21, 2026, 06_10_30 PM.png" alt="PRK Banner" style="width:100%;max-width:1400px;border-radius:25px;box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+</section>
+
+<section class="hero" id="home" style="background:linear-gradient(rgba(0,10,40,0.85),rgba(0,10,40,0.85)),url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');background-size:cover;background-position:center;min-height:95vh;display:flex;align-items:center;padding:80px 8%;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;width:100%;">
+
+    <div class="hero-content" style="text-align:left;">
+      <h1 style="font-size:72px;font-weight:800;line-height:1.1;color:white;">
+        PRK <br><span style="color:#3ea6ff;">COMPUTER CENTER</span>
+      </h1>
+
+      <p style="margin-top:20px;font-size:22px;color:#d9e8ff;max-width:650px;">
+        SABHI DIGITAL SEVA EK HI CHHAT KE NEECHEY
+      </p>
+
+      <div style="display:flex;gap:25px;flex-wrap:wrap;margin-top:35px;">
+        <div style="color:#fff;font-weight:600;">✔️ Fast Service</div>
+        <div style="color:#fff;font-weight:600;">🛡️ Trusted Center</div>
+        <div style="color:#fff;font-weight:600;">👨‍💻 Expert Support</div>
+        <div style="color:#fff;font-weight:600;">⏰ On Time Work</div>
+      </div>
+
+      <a href="#services" class="btn">View Services</a>
+    </div>
+
+    <div style="text-align:center;">
+      <img src="ChatGPT Image May 21, 2026, 06_10_30 PM.png" alt="PRK Logo" style="width:100%;max-width:600px;filter:drop-shadow(0 10px 35px rgba(0,153,255,0.5));">
+    </div>
+
+  </div>
+</section>
+
+<section style="margin-top:-60px;padding:0 8%;position:relative;z-index:5;">
+  <div style="background:white;border-radius:25px;box-shadow:0 10px 35px rgba(0,0,0,0.12);padding:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;text-align:center;">
+
+    <div>
+      <div style="font-size:42px;">🏛️</div>
+      <h3>सरकारी सेवाएं</h3>
+      <p>100+ Services</p>
+    </div>
+
+    <div>
+      <div style="font-size:42px;">🌐</div>
+      <h3>ऑनलाइन कार्य</h3>
+      <p>Fast & Secure</p>
+    </div>
+
+    <div>
+      <div style="font-size:42px;">🎓</div>
+      <h3>कंप्यूटर कोर्स</h3>
+      <p>Best Training</p>
+    </div>
+
+    <div>
+      <div style="font-size:42px;">🏦</div>
+      <h3>CSC सेवाएं</h3>
+      <p>All CSC Services</p>
+    </div>
+
+    <div>
+      <div style="font-size:42px;">🖨️</div>
+      <h3>प्रिंटिंग & ज़ेरॉक्स</h3>
+      <p>High Quality</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="services" style="background:#f7f9fc;position:relative;overflow:hidden;">
+
+  <div style="position:absolute;top:-120px;left:-120px;width:300px;height:300px;background:linear-gradient(135deg,#0077ff,#00c6ff);opacity:0.08;border-radius:50%;"></div>
+
+  <div style="position:absolute;bottom:-120px;right:-120px;width:320px;height:320px;background:linear-gradient(135deg,#003cff,#00d9ff);opacity:0.08;border-radius:50%;"></div>
+  <div class="section-title">
+    <h2 style="font-size:52px;color:#061b3a;">हमारी सेवाएं (Our Services)</h2>
+    <p>Professional Government & Online Digital Services</p>
+  </div>
+
+  <div class="services">
+    <div class="card">
+      <div style="font-size:50px;">🪪</div>
+      <h3>Government Services</h3>
+      <p>
+        Aadhaar Card Update, PAN Card Apply, Voter ID Services, आय प्रमाण पत्र,
+        जाति प्रमाण पत्र, निवास प्रमाण पत्र, जन्म प्रमाण पत्र, मृत्यु प्रमाण पत्र,
+        राशन कार्ड, श्रम कार्ड, किसान रजिस्ट्रेशन एवं अन्य सरकारी सेवाएं उपलब्ध हैं।
+      </p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:50px;">🌐</div>
+      <h3>Online Work</h3>
+      <p>
+        रेलवे फॉर्म, स्कॉलरशिप फॉर्म, यूनिवर्सिटी एडमिशन, सरकारी नौकरी फॉर्म,
+        ऑनलाइन परीक्षा रजिस्ट्रेशन, रिजल्ट डाउनलोड, दस्तावेज अपलोड एवं प्रिंट सेवा उपलब्ध।
+      </p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:50px;">🎓</div>
+      <h3>Computer Courses</h3>
+      <p>
+        CCC, DCA, ADCA, Tally Prime, MS Office, हिंदी एवं इंग्लिश टाइपिंग,
+        इंटरनेट कोर्स, Graphic Designing तथा Basic से Advanced Computer Training.
+      </p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:50px;">🏦</div>
+      <h3>CSC Services</h3>
+      <p>
+        Banking Services, AEPS, Money Transfer, Insurance, Bill Payment,
+        सरकारी योजनाओं का आवेदन, पेंशन सेवा एवं डिजिटल भुगतान सुविधाएं।
+      </p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:50px;">🖨️</div>
+      <h3>Printing & Xerox</h3>
+      <p>
+        Color Print, Black & White Print, Lamination, Spiral Binding,
+        Photo Copy, Passport Photo, Document Scanning एवं ऑनलाइन डॉक्यूमेंट प्रिंट।
+      </p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:50px;">📡</div>
+      <h3>Internet Services</h3>
+      <p>
+        High Speed Internet, Email Services, Online Application Support,
+        PDF Conversion, Document Upload, DigiLocker एवं अन्य डिजिटल सेवाएं।
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="courses" id="courses" style="background:linear-gradient(135deg,#03152d,#073c77);color:white;position:relative;overflow:hidden;">
+
+<div style="position:absolute;top:0;right:0;width:400px;height:400px;background:rgba(0,153,255,0.08);border-radius:50%;filter:blur(20px);"></div>
+  <div class="section-title">
+    <h2>Computer Courses</h2>
+    <p>Best Computer Training Programs</p>
+  </div>
+
+  <div class="course-list">
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">💻 CCC Course</div>
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">🖥️ DCA Course</div>
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">🎓 ADCA Course</div>
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">📊 Tally Prime</div>
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">📁 MS Office</div>
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">⌨️ Typing Course</div>
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">🎨 Graphic Designing</div>
+    <div class="course-item" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:white;">🧠 Basic Computer Course</div>
+  </div>
+</section>
+
+<section id="about" style="position:relative;overflow:hidden;">
+<div style="position:absolute;left:-100px;bottom:-100px;width:250px;height:250px;background:linear-gradient(135deg,#0077ff,#00c6ff);opacity:0.07;border-radius:50%;"></div>
+  <div class="about">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Computer Center">
+
+    <div class="about-text" style="background:white;padding:40px;border-radius:25px;box-shadow:0 15px 35px rgba(0,0,0,0.08);">
+      <h2>About PRK Computer Center</h2>
+      <p>
+        PRK Computer Center एक आधुनिक डिजिटल सेवा केंद्र है जहाँ सभी प्रकार की सरकारी सेवाएं,
+        ऑनलाइन कार्य और कंप्यूटर प्रशिक्षण उपलब्ध हैं।
+      </p>
+
+      <p>
+        हमारा उद्देश्य ग्रामीण और शहरी क्षेत्रों के लोगों को आसान और तेज डिजिटल सेवाएं उपलब्ध कराना है।
+      </p>
+
+      <a href="#contact" class="btn">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>Get In Touch With PRK Computer Center</p>
+  </div>
+
+  <div class="contact-box">
+    <h3>PRK Computer Center</h3>
+    <p><strong>Address:</strong> Hospital Road Haji Market Tambaur Sitapur Uttar Pradesh -261208 </p>
+    <p><strong>Phone:</strong> +91 9118663177, 9140509014, 9559478585</p>
+    <p><strong>Email:</strong> buddhilal9118@gmail.com, prkcomputercenter@gmail.com</p>
+    <p><strong>Working Hours:</strong> 9:00 AM - 7:00 PM</p>
+  </div>
+</section>
+
+<footer style="background:linear-gradient(135deg,#02152e,#003a75);padding:35px 8%;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;align-items:center;color:white;">
+
+    <div>
+      <h3 style="margin-bottom:15px;">📍 Address</h3>
+      <p>Hospital Road Haji Market Tambaur Sitapur Uttar Pradesh -261208</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:15px;">📞 Phone</h3>
+      <p>+91 9118663177</p>
+      <p>+91 9140509014</p>
+      <p>+91 9559478585</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:15px;">✉️ Email</h3>
+      <p>prkcomputercenter@gmail.com</p>
+      <p>buddhilal9118@gmail.com</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:15px;">⏰ Working Hours</h3>
+      <p>9:00 AM - 7:00 PM (Everyday)</p>
+    </div>
+
+  </div>
+
+  <div style="border-top:1px solid rgba(255,255,255,0.2);margin-top:25px;padding-top:20px;text-align:center;color:#cddfff;">
+    © 2026 PRK Computer Center | All Rights Reserved
+  </div>
+</footer>
+
+<section id="gallery" style="padding:90px 8%;background:#f4f8ff;">
+  <div class="section-title">
+    <h2 style="font-size:52px;color:#061b3a;">Our Digital Services</h2>
+    <p>Professional Government & Online Work Solutions</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;">
+
+    <div style="background:white;border-radius:25px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:220px;object-fit:cover;">
+      <div style="padding:25px;">
+        <h3>Government Services</h3>
+        <p>All Online Government Forms & Certificate Services.</p>
+      </div>
+    </div>
+
+    <div style="background:white;border-radius:25px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:220px;object-fit:cover;">
+      <div style="padding:25px;">
+        <h3>Computer Courses</h3>
+        <p>Best Training Institute for CCC, DCA, ADCA & Tally.</p>
+      </div>
+    </div>
+
+    <div style="background:white;border-radius:25px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:220px;object-fit:cover;">
+      <div style="padding:25px;">
+        <h3>CSC & Banking Services</h3>
+        <p>Money Transfer, AEPS, Insurance & Digital Banking.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding:90px 8%;background:#f7fbff;">
+  <div class="section-title">
+    <h2 style="font-size:54px;color:#061b3a;">✨ Premium Website Features</h2>
+    <p>Modern Digital Service Portal Features</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;">
+
+    <div class="card"><div style="font-size:50px;">📲</div><h3>WhatsApp Floating Button</h3><p>Direct WhatsApp support for instant customer communication.</p></div>
+
+    <div class="card"><div style="font-size:50px;">📞</div><h3>Direct Call Button</h3><p>One-click phone call feature for fast customer support.</p></div>
+
+    <div class="card"><div style="font-size:50px;">🖼️</div><h3>Professional Gallery</h3><p>Modern image gallery showcasing services and institute facilities.</p></div>
+
+    <div class="card"><div style="font-size:50px;">🚀</div><h3>App Download Section</h3><p>Dedicated Android app download and promotion section.</p></div>
+
+    <div class="card"><div style="font-size:50px;">🌐</div><h3>SEO Meta Tags</h3><p>Search engine optimized structure for Google ranking.</p></div>
+
+    <div class="card"><div style="font-size:50px;">📱</div><h3>Mobile App Style UI</h3><p>Responsive mobile-friendly interface with premium layout.</p></div>
+
+    <div class="card"><div style="font-size:50px;">💎</div><h3>Premium Modern Design</h3><p>Professional gradients, shadows, animations & modern effects.</p></div>
+
+    <div class="card"><div style="font-size:50px;">🏛️</div><h3>Government Service Portal</h3><p>Professional digital seva portal inspired government design.</p></div>
+
+    <div class="card"><div style="font-size:50px;">🎓</div><h3>Institute Branding</h3><p>Computer institute branding with professional identity.</p></div>
+
+    <div class="card"><div style="font-size:50px;">🏦</div><h3>CSC & Banking Showcase</h3><p>AEPS, Banking, Insurance & CSC services display section.</p></div>
+
+  </div>
+</section>
+
+<section style="padding:80px 8%;background:linear-gradient(135deg,#00142e,#003d7a);color:white;text-align:center;">
+  <h2 style="font-size:55px;margin-bottom:20px;">Download PRK App</h2>
+  <p style="max-width:800px;margin:auto;font-size:20px;color:#d6e8ff;">
+    जल्द ही PRK Computer Center का Android App लॉन्च होगा जहाँ सभी डिजिटल सेवाएं एक क्लिक में उपलब्ध होंगी।
+  </p>
+
+  <button style="margin-top:35px;padding:18px 40px;border:none;border-radius:50px;background:#00c6ff;color:#00142e;font-size:20px;font-weight:700;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+    📲 Download APK
+  </button>
+</section>
+
+</body>
+</html>

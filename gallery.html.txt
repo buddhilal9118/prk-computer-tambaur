@@ -1,0 +1,92 @@
+﻿<!-- =========================
+     GALLERY SECTION START
+========================= -->
+
+<section class="gallery" id="gallery">
+
+  <div class="section-title">
+    <h2>Our Gallery</h2>
+    <p>PRK Computer Center Digital Services & Training Gallery</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- IMAGE 1 -->
+    <div class="gallery-item">
+      <img src="gallery/gov-service.jpg" alt="Government Services">
+      <div class="gallery-content">
+        <h3>Government Services</h3>
+        <p>
+          Aadhaar, PAN Card, Voter ID, Income Certificate,
+          Caste Certificate & Government Online Services.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 2 -->
+    <div class="gallery-item">
+      <img src="gallery/computer-course.jpg" alt="Computer Courses">
+      <div class="gallery-content">
+        <h3>Computer Courses</h3>
+        <p>
+          CCC, DCA, ADCA, Tally Prime,
+          MS Office & Professional Computer Training.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 3 -->
+    <div class="gallery-item">
+      <img src="gallery/csc-service.jpg" alt="CSC Services">
+      <div class="gallery-content">
+        <h3>CSC Services</h3>
+        <p>
+          AEPS, Banking, Money Transfer,
+          Insurance & Digital Seva Services.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 4 -->
+    <div class="gallery-item">
+      <img src="gallery/online-work.jpg" alt="Online Work">
+      <div class="gallery-content">
+        <h3>Online Work</h3>
+        <p>
+          Online Form Filling, Exam Forms,
+          Scholarship Forms & Registration Services.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 5 -->
+    <div class="gallery-item">
+      <img src="gallery/printing.jpg" alt="Printing Services">
+      <div class="gallery-content">
+        <h3>Printing & Xerox</h3>
+        <p>
+          Color Printing, Xerox, Lamination,
+          Photo Print & Scanning Services.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 6 -->
+    <div class="gallery-item">
+      <img src="gallery/banking.jpg" alt="Banking Services">
+      <div class="gallery-content">
+        <h3>Banking Services</h3>
+        <p>
+          AEPS Banking, Mini Statement,
+          Cash Withdrawal & Account Services.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     GALLERY SECTION END
+========================= -->
