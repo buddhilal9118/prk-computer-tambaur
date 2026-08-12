@@ -2,11 +2,12 @@ name: Fix owner profile image
 on:
   push:
     branches: [main]
+    paths:
+      - 'assets/owner-profile.png'
 permissions:
   contents: write
 jobs:
   convert:
-    if: github.event.head_commit.message != 'Fix owner profile image'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
