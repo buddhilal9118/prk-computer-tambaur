@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>काम का Status Check | PRK Computer Center Tambaur</title>
+<style>
+:root{--b:#0866d8;--d:#061b43;--g:#09b96a;--bg:#f4f9ff;--ink:#142238;--muted:#617087}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:linear-gradient(135deg,#eef7ff,#fff);color:var(--ink)}
+.top{background:var(--d);color:#fff;padding:10px 5%;font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.nav{background:#fff;padding:13px 5%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px #0001}.brand{font-weight:900;color:var(--b);font-size:25px}.navlinks{display:flex;gap:18px;font-weight:700;font-size:14px}.btn{display:inline-block;padding:11px 17px;border-radius:24px;color:#fff;text-decoration:none;font-weight:800}.wa{background:var(--g)}.call{background:var(--b)}
+main{max-width:1000px;margin:auto;padding:55px 18px}.hero{text-align:center}.hero .icon{width:78px;height:78px;margin:auto;border-radius:50%;display:grid;place-items:center;background:var(--b);color:#fff;font-size:38px;box-shadow:0 12px 30px #0866d844}.hero h1{font-size:40px;margin:15px 0 5px;color:var(--b)}.hero p{color:var(--muted);margin:0 auto 28px;max-width:650px}.box{background:#fff;border:1px solid #dce9f7;border-radius:20px;padding:28px;box-shadow:0 15px 40px #082a5a12;max-width:700px;margin:auto}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-weight:800;font-size:14px}.field input{padding:14px;border:1px solid #cbdced;border-radius:10px;font-size:16px;outline:none}.field input:focus{border-color:var(--b);box-shadow:0 0 0 3px #0866d815}.check{width:100%;border:0;border-radius:10px;padding:14px;background:var(--b);color:#fff;font-size:16px;font-weight:900;cursor:pointer;margin-top:16px}.hint{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}.result{display:none;margin:24px auto 0;max-width:700px}.result.show{display:block}.status-card{background:#fff;border-radius:18px;border:1px solid #dce9f7;padding:24px;box-shadow:0 12px 30px #082a5a12}.status-head{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}.status-head h2{margin:0}.badge{padding:7px 13px;border-radius:20px;background:#e8f8f0;color:#087642;font-weight:900}.progress{height:10px;background:#e8eef5;border-radius:10px;overflow:hidden;margin:18px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--b),var(--g));transition:width .5s}.steps{display:grid;gap:10px}.step{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;background:#f7fbff}.dot{width:22px;height:22px;border-radius:50%;background:#dbe7f3;flex:none}.step.done .dot{background:var(--g)}.step b{display:block}.step small{color:var(--muted)}.error{display:none;background:#fff3f3;color:#a32121;border:1px solid #f0bcbc;padding:14px;border-radius:10px;margin-top:16px;font-weight:700}.error.show{display:block}.help{text-align:center;margin-top:28px}.help p{color:var(--muted)}footer{background:var(--d);color:#dce8f8;text-align:center;padding:22px;margin-top:30px}
+@media(max-width:650px){.navlinks{display:none}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.hero h1{font-size:31px}}
+</style>
+</head>
+<body>
+<div class="top"><span>📍 Hospital Road, Haji Market, Near Bank of India, Tambaur</span><span>📞 +91 9118663177</span></div>
+<nav class="nav"><a href="index.html" class="brand">PRK COMPUTER CENTER</a><div class="navlinks"><a href="index.html">Home</a><a href="services.html">Services</a><a href="online-service-form.html">Application</a><a href="status.html">काम का Status</a></div><div><a class="btn wa" href="https://wa.me/919118663177?text=Namaste%20PRK%20Computer%20Center%2C%20mujhe%20apne%20kaam%20ka%20status%20check%20karna%20hai." target="_blank">WhatsApp</a></div></nav>
+<main>
+<section class="hero"><div class="icon">🔎</div><h1>अपने काम का Status Check करें</h1><p>PRK Computer Center में दिए गए आवेदन/सेवा का वर्तमान status Application ID और registered mobile number से तुरंत देखें।</p></section>
+<div class="box"><div class="fields"><div class="field"><label>Application ID *</label><input id="appId" placeholder="जैसे PRK-1001" autocomplete="off"></div><div class="field"><label>Registered Mobile *</label><input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 अंकों का मोबाइल"></div></div><button class="check" onclick="checkStatus()">🔍 Status Check करें</button><div class="hint">Application ID आपको PRK Computer Center से मिलने वाली receipt/WhatsApp confirmation में दी जाएगी।</div><div id="error" class="error"></div></div>
+<div id="result" class="result"><div class="status-card"><div class="status-head"><div><small>Application ID</small><h2 id="rId">-</h2></div><span id="rBadge" class="badge">-</span></div><p><b>ग्राहक:</b> <span id="rName">-</span> &nbsp; | &nbsp; <b>सेवा:</b> <span id="rService">-</span></p><div class="progress"><div id="bar" class="bar"></div></div><div class="steps"><div id="s1" class="step"><span class="dot"></span><div><b>आवेदन प्राप्त</b><small>आपका request center में दर्ज हुआ।</small></div></div><div id="s2" class="step"><span class="dot"></span><div><b>दस्तावेज/जांच</b><small>Documents और application की जांच।</small></div></div><div id="s3" class="step"><span class="dot"></span><div><b>प्रक्रिया में</b><small>संबंधित portal/विभाग में processing।</small></div></div><div id="s4" class="step"><span class="dot"></span><div><b>काम पूरा</b><small>सेवा पूरी होने पर customer को सूचना।</small></div></div></div><p style="color:#617087;font-size:13px;margin-bottom:0">Last Update: <b id="rDate">-</b></p></div></div>
+<div class="help"><h3>Status नहीं मिला?</h3><p>Application ID/मोबाइल के साथ WhatsApp पर PRK Computer Center से पूछें।</p><a class="btn wa" href="https://wa.me/919118663177?text=Namaste%20PRK%20Computer%20Center%2C%20mera%20application%20status%20check%20karna%20hai.%20Application%20ID%3A%20" target="_blank">💬 WhatsApp पर Status पूछें</a></div>
+</main><footer>© 2026 PRK Computer Center Tambaur • Buddhi Lal</footer>
+<script>
+/* Demo records. Center owner can replace/add records here when a customer's status changes. */
+const statusData={
+  "PRK-1001":{mobile:"9118663177",name:"Sample Customer",service:"Online Form",status:"प्रक्रिया में",level:3,date:"12 Aug 2026"},
+  "PRK-1002":{mobile:"9000000000",name:"Demo Customer",service:"Income Certificate",status:"काम पूरा",level:4,date:"12 Aug 2026"}
+};
+function checkStatus(){
+ const id=document.getElementById('appId').value.trim().toUpperCase();const mobile=document.getElementById('mobile').value.trim();const err=document.getElementById('error');const res=document.getElementById('result');
+ err.classList.remove('show');res.classList.remove('show');
+ if(!/^PRK-\d{4,8}$/.test(id)){err.textContent='कृपया सही Application ID डालें, जैसे PRK-1001';err.classList.add('show');return}
+ if(!/^\d{10}$/.test(mobile)){err.textContent='कृपया 10 अंकों का registered mobile number डालें।';err.classList.add('show');return}
+ const d=statusData[id];
+ if(!d || d.mobile!==mobile){err.textContent='Application record नहीं मिला। Application ID और mobile number जांचें या WhatsApp पर PRK Center से संपर्क करें।';err.classList.add('show');return}
+ document.getElementById('rId').textContent=id;document.getElementById('rName').textContent=d.name;document.getElementById('rService').textContent=d.service;document.getElementById('rBadge').textContent=d.status;document.getElementById('rDate').textContent=d.date;document.getElementById('bar').style.width=(d.level*25)+'%';
+ for(let i=1;i<=4;i++)document.getElementById('s'+i).classList.toggle('done',i<=d.level);res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body></html>
