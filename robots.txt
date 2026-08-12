@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Sitemap: https://buddhilal9118.github.io/prk-computer-tambaur/sitemap.xml
