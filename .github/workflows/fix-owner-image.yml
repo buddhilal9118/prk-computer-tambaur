@@ -1,0 +1,24 @@
+name: Fix owner profile image
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  convert:
+    if: github.event.head_commit.message != 'Fix owner profile image'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Convert high-resolution PNG to JPG
+        run: |
+          magick assets/owner-profile.png -background white -alpha remove -alpha off -quality 96 assets/owner-profile.jpg
+      - name: Commit image
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/owner-profile.jpg
+          git diff --cached --quiet && exit 0
+          git commit -m 'Fix owner profile image'
+          git push
