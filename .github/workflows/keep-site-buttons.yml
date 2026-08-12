@@ -1,0 +1,46 @@
+name: Keep PRK Site Buttons
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keep-buttons:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore Status and Admin buttons without removing existing content
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          buttons = '''<a class="action status-fixed" href="status.html">🔎 काम का Status Check</a><a class="action admin-fixed" href="admin.html">🔐 Admin Login / Work Upload</a>'''
+          if 'class="action status-fixed"' not in s:
+              marker = '<div class="actions">'
+              if marker in s:
+                  s = s.replace(marker, marker + buttons, 1)
+              else:
+                  s = s.replace('</header>', '<div class="actions">' + buttons + '</div></header>', 1)
+          css = '''<style id="prk-fixed-buttons">.status-fixed{background:#eaf4ff!important;color:#0866d8!important;border:2px solid #78b7f5!important}.admin-fixed{background:#fff3df!important;color:#8a4b00!important;border:2px solid #e0b35f!important}.status-fixed,.admin-fixed{display:inline-block!important;visibility:visible!important;opacity:1!important}</style>'''
+          if 'id="prk-fixed-buttons"' not in s:
+              s = s.replace('</head>', css + '</head>', 1)
+          p.write_text(s, encoding='utf-8')
+
+      - name: Commit only if buttons were restored
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Buttons already present; no changes needed."
+          else
+            git commit -m "Keep Status and Admin buttons on homepage"
+            git push
+          fi
