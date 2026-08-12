@@ -11,9 +11,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install Pillow
+        run: python3 -m pip install --user Pillow
       - name: Convert high-resolution PNG to JPG
         run: |
-          magick assets/owner-profile.png -background white -alpha remove -alpha off -quality 96 assets/owner-profile.jpg
+          python3 - <<'PY'
+          from PIL import Image
+          src='assets/owner-profile.png'
+          dst='assets/owner-profile.jpg'
+          im=Image.open(src).convert('RGBA')
+          bg=Image.new('RGB', im.size, 'white')
+          bg.paste(im, mask=im.getchannel('A'))
+          bg.save(dst, 'JPEG', quality=96, optimize=True)
+          PY
       - name: Commit image
         run: |
           git config user.name 'github-actions[bot]'
