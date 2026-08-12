@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /login.html
+Disallow: /dashboard.html
+Disallow: /index-new.html
+Disallow: /index.html.html
 Sitemap: https://buddhilal9118.github.io/prk-computer-tambaur/sitemap.xml
