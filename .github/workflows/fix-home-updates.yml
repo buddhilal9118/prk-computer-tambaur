@@ -1,0 +1,87 @@
+name: Keep Home Jobs Updates Working
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch-home:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add safe Jobs/Updates section to existing home page
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+          marker = '<!-- PRK-LATEST-UPDATES -->'
+
+          if marker not in html:
+              section = r'''<!-- PRK-LATEST-UPDATES -->
+          <section class="sec" id="latest-updates" style="background:#f4f9ff">
+            <div class="head">
+              <label>━━ Latest Jobs & Updates ━━</label>
+              <h2>नवीनतम नौकरी एवं सरकारी योजना अपडेट</h2>
+              <p>नौकरी, योजना, स्कॉलरशिप, एडमिट कार्ड और रिजल्ट की नई जानकारी</p>
+            </div>
+            <div id="homeUpdates" style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px"></div>
+            <div style="text-align:center;margin-top:22px">
+              <a class="action primary" href="posts.html">📰 सभी Jobs / Schemes देखें</a>
+            </div>
+          </section>
+          <style>
+            #homeUpdates .home-update{background:#fff;border:1px solid #dce8f5;border-radius:15px;padding:18px;box-shadow:0 10px 28px #082a5a12}
+            #homeUpdates .home-update h3{margin:8px 0;color:#1252aa;font-size:19px}
+            #homeUpdates .home-update p{color:#617087;font-size:14px;margin:0 0 10px}
+            #homeUpdates .home-badge{display:inline-block;background:#eaf4ff;color:#0866d8;padding:5px 9px;border-radius:15px;font-size:12px;font-weight:900}
+            #homeUpdates .home-btn{display:inline-block;margin-top:10px;padding:9px 13px;border-radius:9px;background:#0866d8;color:#fff;font-weight:900;text-decoration:none}
+            @media(max-width:700px){#homeUpdates{grid-template-columns:1fr!important}}
+          </style>
+          <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+          <script>
+          (async function(){
+            const box=document.getElementById('homeUpdates');
+            if(!box)return;
+            try{
+              const sb=window.supabase.createClient('https://njneysrvvdqkyrbtywtz.supabase.co','sb_publishable_TDjkFQAuMOVZ6OKOoO3ipg_dNC-5MFA');
+              const r=await sb.from('news_posts').select('id,category,title,summary,updated_at,pdf_url,official_link,image_url').eq('is_published',true).order('updated_at',{ascending:false}).limit(6);
+              if(r.error)throw r.error;
+              const rows=r.data||[];
+              if(!rows.length){box.innerHTML='<div class="home-update"><h3>अभी कोई नई पोस्ट नहीं</h3><p>नई नौकरी या योजना की जानकारी जल्द यहां दिखाई जाएगी।</p></div>';return;}
+              const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+              box.innerHTML=rows.map(x=>'<article class="home-update">'+(x.image_url?'<img src="'+esc(x.image_url)+'" alt="" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:10px">':'')+'<span class="home-badge">'+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary)+'</p><small style="color:#65748a">📅 '+new Date(x.updated_at).toLocaleDateString('hi-IN')+'</small><div><a class="home-btn" href="posts.html">पूरी जानकारी देखें →</a>'+(x.pdf_url?'<a class="home-btn" style="background:#08a85b;margin-left:6px" href="'+esc(x.pdf_url)+'" target="_blank">PDF</a>':'')+'</div></article>').join('');
+            }catch(e){
+              box.innerHTML='<div class="home-update"><h3>Updates लोड हो रहे हैं</h3><p>कृपया कुछ क्षण बाद page refresh करें।</p></div>';
+            }
+          })();
+          </script>
+          '''
+              anchor = '<section class="sec" id="owner">'
+              if anchor not in html:
+                  raise SystemExit('Owner section anchor not found; no changes made')
+              html = html.replace(anchor, section + anchor, 1)
+
+              nav_old = '<a href="#schemes">सरकारी योजनाएं</a>'
+              nav_new = nav_old + '<a href="#latest-updates">Jobs / Updates</a>'
+              html = html.replace(nav_old, nav_new, 1)
+
+              p.write_text(html, encoding='utf-8')
+
+      - name: Commit only if index changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- index.html; then
+            echo "No home page patch needed."
+          else
+            git add index.html
+            git commit -m "Add stable Jobs and Updates section to home page"
+            git push
+          fi
