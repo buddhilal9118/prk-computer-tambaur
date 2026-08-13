@@ -2,7 +2,26 @@
    PRK COMPUTER CENTER
    PREMIUM PROFESSIONAL CSS
 ========================= */
+.job-card{
+    padding:20px;
+    margin-top:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    background:#fff;
+}
 
+#jobs{
+    padding:60px 20px;
+    text-align:center;
+}
+
+#jobs .btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+}
 *{
   margin:0;
   padding:0;
